@@ -41,3 +41,7 @@ Date: 2026-09-30 Asia/Seoul. Reviewers: leader (live browser and integration evi
 4. Replace all form-draft markers with actual public evidence, have the user record/upload the video, then let the user complete contact fields and the final form submission. Preserve the real confirmation receipt.
 
 Until gates 2–3 pass, a public repository, hosted demo, screenshot, local fork, or third-party sample circuit **does not satisfy mainnet eligibility**.
+
+## Post-review release update
+
+The dedicated [public repository](https://github.com/diveyreadytodive-star/circuitdesk-ignix-tapeout) was pushed; its initial source commit `9f4b423…` was confirmed at remote `main` during independent release QA. A subsequent evidence commit will change the final HEAD, which must be rechecked after push. The [hosted read-only app](https://diveyreadytodive-star.github.io/circuitdesk-ignix-tapeout/) and its adapter assets returned HTTP 200 unauthenticated; hosted asset hashes matched the tested source, and the public XOR reference still evaluated by `eth_call`. See [release QA](../review/qa/release-verification.md). Exit gate 1 is met for public source and read-only hosting. Own mainnet processor/circuit, user video and final form remain unmet.

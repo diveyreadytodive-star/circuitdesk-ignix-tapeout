@@ -15,6 +15,7 @@ Date: 2026-09-30 (Asia/Seoul)
 - `desktop-chain-proof.jpg`, `mobile-chain-proof.jpg`: browser preview alongside real public X Layer read-only result.
 - `desktop-processor.jpg`, `mobile-create-preflight.jpg`: processor verification and deployment terms.
 - `desktop-public-reference-receipt.jpg`: A real external TapeOut circuit transaction independently rechecked with the adapter. Its card explicitly says third-party and does not claim CircuitDesk ownership.
+- `hosted-desktop.jpg`, `hosted-mobile.jpg`: The public GitHub Pages build after the first source push; same app loaded without signing in, and the hosted mobile viewport had no horizontal overflow.
 
 The commercial reference captures used for internal comparison are in `/private/tmp/circuitlab-reference.jpg` and `/private/tmp/everycircuit-reference.jpg`; they are not project assets and should not be published.
 

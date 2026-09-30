@@ -1,6 +1,6 @@
 # Browser and visual verification
 
-Date: 2026-09-30 Asia/Seoul. **Leader** ran the live IAB browser against the local server at `http://127.0.0.1:4173/web/`. **Strategy/QA agent C** independently inspected all nine saved screenshots and reran the 5 Node tests. These checks show a usable development build; they do not show a user wallet transaction, our own mainnet processor, or a submitted contest entry.
+Date: 2026-09-30 Asia/Seoul. **Leader** ran the live IAB browser against the local server at `http://127.0.0.1:4173/web/` and later the public Pages URL. **Strategy/QA agent C** independently inspected all eleven saved screenshots and reran the 5 Node tests. These checks show a usable read-only build; they do not show a user wallet transaction, our own mainnet processor, or a submitted contest entry.
 
 ## Saved visual evidence
 
@@ -14,7 +14,9 @@ Date: 2026-09-30 Asia/Seoul. **Leader** ran the live IAB browser against the loc
 | Mobile landing | [mobile-landing.jpg](../ui/mobile-landing.jpg) | Header, hero and schematic reflow at 390 px viewport without horizontal clipping. |
 | Mobile workbench | [mobile-workbench.jpg](../ui/mobile-workbench.jpg) | Template panel followed by signal preview in a single-column flow. |
 | Mobile public chain result | [mobile-chain-proof.jpg](../ui/mobile-chain-proof.jpg) | Truth table, `eth_call` reference result at block 71986374, and preflight below it. The reference is labeled as an existing circuit. |
-| Mobile processor preflight | [mobile-create-preflight.jpg](../ui/mobile-create-preflight.jpg) | Processor fields, suggested 100,000 cap and 0.000066 OKB unit-price placeholders, current **0.0066 OKB + gas** creation fee, test-phase/unsealed/unaudited warning, and wallet-review CTA. This screenshot does **not** show a confirmed transaction. |
+| Hosted mobile processor preflight | [mobile-create-preflight.jpg](../ui/mobile-create-preflight.jpg) | Public Pages modal with **prefilled proposed** `CircuitDesk Logic One` / `CDL1` / purpose text, 100,000 cap, 0.000066 OKB unit price (`66,000,000,000,000` wei), live **0.0066 OKB + gas** creation fee, test-phase/unsealed/unaudited warning, and wallet-review CTA. No button click, signature or confirmed transaction is shown. |
+| Hosted desktop | [hosted-desktop.jpg](../ui/hosted-desktop.jpg) | Public Pages URL serving the CircuitDesk landing and workbench; no wallet state or own circuit is shown. |
+| Hosted mobile | [hosted-mobile.jpg](../ui/hosted-mobile.jpg) | Public Pages app at 390 px with template-to-preview single-column flow. |
 
 ## Live behavior reported by the leader
 
@@ -24,6 +26,7 @@ Date: 2026-09-30 Asia/Seoul. **Leader** ran the live IAB browser against the loc
 - Invalid CPU address ending in `dEaD` produced a friendly factory-verification error and kept tapeout disabled. Public CPU #0 has its 100,000-unit cap minted, so its tapeout preflight remained disabled by insufficient supply.
 - The create-processor dialog displayed the read live factory fee and risk warning. No wallet transaction was sent.
 - The final create-dialog source prefills exactly the reviewed **proposal** in [issuance-proposal.md](../../submission/issuance-proposal.md): `CircuitDesk Logic One`, `CDL1`, the public purpose sentence, 100,000 cap, and 0.000066 OKB per unit. These are editable inputs, not onchain values or proof of deployment.
+- On the **hosted Pages URL**, the leader's IAB pass found three adapter templates and a reachable X Layer factory. At mobile viewport 390 px, document scroll width was 390 px, there was one `h1`, and console warnings/errors were empty. The hosted app's public XOR reference returned output `1` for input `1,0` at block **71989028** through `eth_call` with no transaction. C separately checked public asset HTTP responses/hash parity and a fresh reference call; see [release QA](release-verification.md).
 
 ## Pending-write and receipt integrity checks (leader, live IAB)
 

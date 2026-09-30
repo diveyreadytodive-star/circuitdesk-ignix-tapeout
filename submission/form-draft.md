@@ -11,7 +11,7 @@ CircuitDesk
 ```text
 CircuitDesk helps a newcomer understand and publish a small Boolean circuit on a TapeOut processor on X Layer. Its first task is a review disagreement check: two manually entered pass/needs-work flags feed XOR, which returns 1 when reviewers disagree. A guided template shows the local truth table, required components, and transaction terms before signing. After a confirmed tapeout, a shareable circuit passport links the processor, circuit ID, issuance settings, and X Layer receipt for independent verification. A separate read-only eth_call evaluates a deployed circuit; it has no transaction receipt and does not enforce a release decision.
 
-Our processor on X Layer mainnet (chain 196): [VERIFY processor contract address]. Deployment wallet: [VERIFY public wallet address]. TapeOut factory: 0x1f09daefa827f02cbb40967cc91b259763760761. Transistor supply: [VERIFY supply and units]. Unit price: [VERIFY amount, OKB and units]. Cap: [VERIFY value and scope]. Processor creation receipt: [VERIFY explorer URL]. Circuit taped out on our processor within the window: [VERIFY circuit ID, tapeout transaction URL and block timestamp]. Read-only evaluation of our circuit: [VERIFY public circuit URL/readback]. Live demo: [VERIFY public URL]. Video walkthrough: [USER VIDEO URL]. GitHub: https://github.com/diveyreadytodive-star/circuitdesk-ignix-tapeout [VERIFY remote files after push].
+Our processor on X Layer mainnet (chain 196): [VERIFY processor contract address]. Deployment wallet: [VERIFY public wallet address]. TapeOut factory: 0x1f09daefa827f02cbb40967cc91b259763760761. Transistor supply: [VERIFY supply and units]. Unit price: [VERIFY amount, OKB and units]. Cap: [VERIFY value and scope]. Processor creation receipt: [VERIFY explorer URL]. Circuit taped out on our processor within the window: [VERIFY circuit ID, tapeout transaction URL and block timestamp]. Read-only evaluation of our circuit: [VERIFY public circuit URL/readback]. Live demo: https://diveyreadytodive-star.github.io/circuitdesk-ignix-tapeout/. Video walkthrough: [USER VIDEO URL]. GitHub: https://github.com/diveyreadytodive-star/circuitdesk-ignix-tapeout.
 
 The product makes no investment-return or artificial-usage claim. TapeOut's X Layer frontend warns its contracts are in a test phase, unsealed and not independently audited. Processor creation, transistor mint, and tapeout are separate wallet transactions; a paid mint may remain in the wallet without a circuit if tapeout does not confirm, and earlier spend/gas is not reversed. Costs, recipients and risks are disclosed before signing and in the README.
 ```
@@ -30,7 +30,7 @@ Leave blank unless the user supplies the project account.
 
 ## GitHub Repository — required
 
-`https://github.com/diveyreadytodive-star/circuitdesk-ignix-tapeout` — **verify remote HEAD and signed-out file access before pasting**.
+`https://github.com/diveyreadytodive-star/circuitdesk-ignix-tapeout` — public repository and files verified in [release QA](../review/qa/release-verification.md).
 
 ## X Post Link — optional
 

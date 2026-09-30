@@ -8,8 +8,8 @@
     "name": "CircuitDesk",
     "repository": "https://github.com/diveyreadytodive-star/circuitdesk-ignix-tapeout",
     "publicDemo": "https://diveyreadytodive-star.github.io/circuitdesk-ignix-tapeout/",
-    "remoteHeadVerified": false,
-    "hostedDemoVerified": false
+    "remoteHeadVerified": true,
+    "hostedDemoVerified": true
   },
   "verifiedDevelopmentEvidence": {
     "xLayerChainId196AndFactoryRead": true,
@@ -19,6 +19,9 @@
     "syntheticWalletAdapterLifecycle": true,
     "syntheticPartialMintFailure": true,
     "desktopAndMobileBrowserScreenshots": true,
+    "hostedBrowserThirdPartyXorEthCall": true,
+    "hostedBrowserMobileNoHorizontalOverflow": true,
+    "hostedBrowserConsoleErrors": 0,
     "nodeTestsPassed": 5,
     "evidenceFiles": [
       "docs/platform-evidence.md",
