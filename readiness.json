@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0",
+  "asOfKstDate": "2026-09-30",
+  "contestDeadlineKst": "2026-10-06T13:00:00+09:00",
+  "eligibility": "NOT_MET",
+  "submissionFormOpenObserved": true,
+  "project": {
+    "name": "CircuitDesk",
+    "repository": "https://github.com/diveyreadytodive-star/circuitdesk-ignix-tapeout",
+    "publicDemo": "https://diveyreadytodive-star.github.io/circuitdesk-ignix-tapeout/",
+    "remoteHeadVerified": false,
+    "hostedDemoVerified": false
+  },
+  "verifiedDevelopmentEvidence": {
+    "xLayerChainId196AndFactoryRead": true,
+    "publicThirdPartyXorEthCall": true,
+    "publicThirdPartyTapeoutReceipt": true,
+    "guardedLocalForkLifecycle": true,
+    "syntheticWalletAdapterLifecycle": true,
+    "syntheticPartialMintFailure": true,
+    "desktopAndMobileBrowserScreenshots": true,
+    "nodeTestsPassed": 5,
+    "evidenceFiles": [
+      "docs/platform-evidence.md",
+      "review/qa/technical-verification.md",
+      "review/qa/browser-verification.md",
+      "decisions/round-3-judge-demo-review.md"
+    ]
+  },
+  "proposedIssuanceNotDeployed": {
+    "processorName": "CircuitDesk Logic One",
+    "symbol": "CDL1",
+    "combinedNandLatchCap": "100000",
+    "unitPriceWei": "66000000000000",
+    "unitPriceOkb": "0.000066",
+    "observedThreeTransactionValueOkbExcludingGas": "0.008824"
+  },
+  "requiredProjectMainnetEvidence": {
+    "processorAddress": null,
+    "deploymentWallet": null,
+    "creationTransactionHash": null,
+    "confirmedSupplyCap": null,
+    "confirmedUnitPriceWei": null,
+    "circuitId": null,
+    "tapeoutTransactionHash": null,
+    "ownCircuitEthCallVerified": false
+  },
+  "userVideoUrl": null,
+  "formSubmitted": false,
+  "remainingUserActions": [
+    "Review the exact three wallet requests and sign processor creation, any required NAND mint, and XOR tapeout on X Layer mainnet before the deadline.",
+    "Record and upload the demo video after both mainnet receipts are independently verified.",
+    "Enter private contact fields and submit the official Google Form after all evidence links are public."
+  ]
+}

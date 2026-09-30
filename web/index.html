@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#112737" />
+    <meta name="description" content="CircuitDesk turns small Boolean designs into reviewable X Layer TapeOut plans and verified circuit receipts." />
+    <title>CircuitDesk — a tiny foundry for useful logic</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workbench">Skip to workbench</a>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="CircuitDesk home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="brand-word">Circuit<span>Desk</span><small>THE SMALL SIGNAL FOUNDRY</small></span>
+        </a>
+        <nav class="topnav" aria-label="Main navigation">
+          <a href="#workbench">Workbench</a>
+          <a href="#processor">Processor</a>
+          <a href="#receipts">Receipts</a>
+        </nav>
+        <div class="topbar-actions">
+          <div class="chain-pill" title="Target network"><span class="status-dot"></span><span>X Layer</span><b>196</b></div>
+          <button id="walletButton" class="button button-outline button-small" type="button">Connect wallet</button>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="heroTitle">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> A CIRCUIT YOU CAN CHECK BEFORE YOU BUILD</p>
+            <h1 id="heroTitle">Make a little<br /><em>logic</em> verifiable.</h1>
+            <p class="hero-lede">Compare two manual review flags. Preview the disagreement rule, read an existing onchain circuit, then review the transistor budget for your own tapeout.</p>
+            <div class="hero-actions">
+              <a class="button button-accent" href="#workbench">Open the workbench <span aria-hidden="true">↗</span></a>
+              <a class="text-link" href="#how-it-works">How it works <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-visual-caption"><span>FIG. 01 / SIGNAL PATH</span><span>LOCAL PREVIEW</span></div>
+            <svg class="hero-schematic" viewBox="0 0 420 280" role="presentation">
+              <defs><pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0H0V22" fill="none" stroke="#426071" stroke-width=".55" opacity=".45"/></pattern></defs>
+              <rect width="420" height="280" fill="url(#grid)"/>
+              <path d="M54 90H175M54 190H175M248 140H367" class="wire"/>
+              <path d="M175 66H207C248 66 264 90 264 140S248 214 207 214H175Z" class="gate"/>
+              <circle cx="279" cy="140" r="14" class="gate-node"/>
+              <circle cx="54" cy="90" r="8" class="signal-node"/>
+              <circle cx="54" cy="190" r="8" class="signal-node"/>
+              <circle cx="367" cy="140" r="8" class="signal-node-out"/>
+              <text x="47" y="65">A</text><text x="47" y="218">B</text><text x="367" y="119">Y</text>
+            </svg>
+            <div class="hero-visual-footer"><span>01 INPUTS</span><span>NAND</span><span>01 OUTPUT</span></div>
+          </div>
+          <div class="hero-index" aria-hidden="true">CD / 001</div>
+        </section>
+
+        <section class="proof-strip" aria-label="Product principles">
+          <div><span class="proof-icon">01</span><p><b>Test first</b><small>Explore the complete truth table locally.</small></p></div>
+          <div><span class="proof-icon">02</span><p><b>Know the cost</b><small>Review component count and processor terms.</small></p></div>
+          <div><span class="proof-icon">03</span><p><b>Keep the proof</b><small>Open the actual X Layer transaction receipt.</small></p></div>
+        </section>
+
+        <section id="workbench" class="workbench-section" aria-labelledby="workbenchTitle">
+          <div class="section-heading">
+            <div><p class="eyebrow dark">WORKBENCH / 01—03</p><h2 id="workbenchTitle">From idea to circuit.</h2></div>
+            <p>Three clear steps. One small piece of logic.<br />Every mainnet action has its own confirmation.</p>
+          </div>
+
+          <div class="workbench-grid">
+            <section class="panel templates-panel" aria-labelledby="templatesTitle">
+              <div class="panel-heading"><div><span class="step-index">01 / CHOOSE</span><h3 id="templatesTitle">Circuit templates</h3></div><span class="panel-mini">BOOLEAN</span></div>
+              <p class="panel-intro">Start from a known pattern. The preview does not spend gas or mint assets.</p>
+              <div id="templateList" class="template-list" aria-label="Available circuit templates"></div>
+              <p id="templateNotice" class="micro-copy" role="status"></p>
+            </section>
+
+            <section class="panel test-panel" aria-labelledby="testTitle">
+              <div class="panel-heading"><div><span class="step-index">02 / TEST</span><h3 id="testTitle">Signal preview</h3></div><span class="preview-tag">LOCAL EVALUATION</span></div>
+              <div class="selected-title"><div><span class="selected-kicker">SELECTED DESIGN</span><h4 id="selectedName">Loading templates…</h4><p id="selectedDescription">The truth table will appear when a supported template is available.</p></div><span id="selectedSymbol" class="design-symbol" aria-hidden="true">∧</span></div>
+              <div class="signal-stage" aria-label="Functional block diagram">
+                <div id="inputWires" class="signal-inputs"></div>
+                <div class="signal-gate"><small>VALIDATED NETLIST</small><strong id="gateLabel">NAND</strong><span id="gateCountLabel">— gates</span></div>
+                <div class="signal-output"><span class="output-wire" aria-hidden="true"></span><div><small>OUTPUT</small><strong id="activeOutput">—</strong></div></div>
+              </div>
+              <div class="truth-header"><div><span class="selected-kicker">ALL POSSIBLE INPUTS</span><h4>Truth table</h4></div><span class="mini-label">CLICK A ROW TO TEST</span></div>
+              <div class="table-wrap"><table class="truth-table"><thead id="truthHead"></thead><tbody id="truthBody"></tbody></table></div>
+              <p class="preview-note"><span aria-hidden="true">◉</span> This is deterministic browser preview, not an X Layer execution result.</p>
+              <div class="chain-read"><div><span class="selected-kicker">CIRCUIT EVALUATION / READ ONLY</span><p id="chainReadStatus" role="status" aria-live="polite">Compare the selected inputs with the existing TapeOut circuit on X Layer. This is not our project's deployment.</p></div><button id="chainReadButton" class="button button-read" type="button" disabled>Read from chain ↗</button></div>
+            </section>
+
+            <section class="panel preflight-panel" aria-labelledby="preflightTitle">
+              <div class="panel-heading"><div><span class="step-index">03 / PREFLIGHT</span><h3 id="preflightTitle">Tapeout review</h3></div><span class="panel-mini">MAINNET</span></div>
+              <div id="preflightState" class="state-banner state-wait" role="status">Checking the X Layer factory…</div>
+              <dl class="cost-list">
+                <div><dt>NAND required</dt><dd id="requiredNand">—</dd></div>
+                <div><dt>LATCH required</dt><dd id="requiredLatch">—</dd></div>
+                <div><dt>Processor</dt><dd id="processorShort">Not selected</dd></div>
+                <div><dt>Held / to mint</dt><dd id="heldMint">—</dd></div>
+                <div><dt>Unit price</dt><dd id="unitPrice">—</dd></div>
+                <div><dt>NAND at unit price</dt><dd id="componentPrice">—</dd></div>
+                <div><dt>Protocol mint fee</dt><dd id="mintFee">—</dd></div>
+                <div><dt>Tapeout fee</dt><dd id="tapeoutFee">—</dd></div>
+                <div class="cost-total"><dt>Total transaction value</dt><dd id="totalPrice">—</dd></div>
+                <div><dt>Network gas</dt><dd>Excluded · shown in wallet</dd></div>
+              </dl>
+              <p id="costDisclosure" class="disclosure">Choose a verified processor to read its live terms. A wallet will show the final transaction details before signing. TapeOut's X Layer contracts are in a public test phase and are not marked sealed or audited in the current frontend.</p>
+              <button id="tapeoutButton" type="button" class="button button-ink button-full" disabled>Choose a processor first <span aria-hidden="true">↗</span></button>
+              <p class="preflight-foot">Tapeout may mint and consume real transistors. The wallet owner confirms each mainnet transaction. This decision card is advisory and does not enforce access to another app.</p>
+            </section>
+          </div>
+        </section>
+
+        <section id="processor" class="processor-section" aria-labelledby="processorTitle">
+          <div class="section-heading compact"><div><p class="eyebrow dark">FOUNDRY / X LAYER</p><h2 id="processorTitle">Choose your processor.</h2></div><p>A real processor sets the transistor terms.<br />Check them before a circuit is minted.</p></div>
+          <div class="processor-grid">
+            <div class="processor-search panel">
+              <div class="panel-heading"><div><span class="step-index">READ FROM CHAIN</span><h3>Load a processor</h3></div></div>
+              <form id="processorForm" class="address-form"><label for="processorAddress">X Layer processor address</label><div><input id="processorAddress" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="0x…" pattern="0x[a-fA-F0-9]{40}" required /><button class="button button-ink" type="submit">Verify <span aria-hidden="true">→</span></button></div></form>
+              <p class="micro-copy">Read-only verification. No wallet needed.</p>
+              <div id="processorList" class="processor-list" aria-label="Recently deployed processors"></div>
+            </div>
+            <div class="processor-detail panel">
+              <div class="panel-heading"><div><span class="step-index">ONCHAIN PASSPORT</span><h3>Processor details</h3></div><span id="processorVerifiedTag" class="unverified-tag">NOT LOADED</span></div>
+              <h4 id="processorName">Select a deployed processor</h4><p id="processorStory">Its factory origin and economics will appear here after a live read.</p>
+              <dl class="detail-list"><div><dt>Contract address</dt><dd id="processorFullAddress">—</dd></div><div><dt>Deployment wallet</dt><dd id="processorCreator">—</dd></div><div><dt>Supply cap</dt><dd id="processorSupply">—</dd></div><div><dt>Minted</dt><dd id="processorMinted">—</dd></div><div><dt>Unit price</dt><dd id="processorUnitPrice">—</dd></div><div><dt>Circuits</dt><dd id="processorCircuits">—</dd></div></dl>
+              <a id="processorExplorer" class="text-link muted" href="#processor" target="_blank" rel="noopener noreferrer" hidden>View contract on X Layer explorer ↗</a>
+            </div>
+          </div>
+          <div class="create-banner"><div><span class="step-index">NO PROCESSOR YET?</span><h3>Bring your own foundry to life.</h3><p>Choose public supply and unit price, review them, then deploy through the verified factory.</p></div><button id="openCreateButton" type="button" class="button button-cream">Create a processor <span aria-hidden="true">↗</span></button></div>
+        </section>
+
+        <section id="receipts" class="receipt-section" aria-labelledby="receiptsTitle">
+          <div class="section-heading compact"><div><p class="eyebrow dark">PROOF / NOT PROMISES</p><h2 id="receiptsTitle">Circuit receipt.</h2></div><p>Only confirmed chain writes appear here.<br />A local preview never becomes a receipt.</p></div>
+          <div id="receiptCard" class="receipt-card" aria-live="polite"><div class="receipt-empty-icon" aria-hidden="true">↗</div><div><span class="step-index">PROJECT STATUS / NOT DEPLOYED</span><h3>No project receipt yet</h3><p>The public reference above proves TapeOut can evaluate a circuit. This section shows only transactions for a new processor or circuit that a wallet actually confirms.</p></div></div>
+        </section>
+
+        <section id="how-it-works" class="how-section" aria-labelledby="howTitle"><span class="step-index">THE METHOD</span><h2 id="howTitle">Small enough to understand.<br /><em>Real enough to verify.</em></h2><p>CircuitDesk is a guided front end for advisory two-signal decisions and Boolean netlists on TapeOut. The browser previews the logic. A read-only call can check a public circuit. X Layer stores only what a user explicitly signs and the network confirms.</p><a class="text-link" href="https://ignix.bot/x_campaign" target="_blank" rel="noopener noreferrer">Read the hackathon rules ↗</a></section>
+      </main>
+
+      <footer class="footer"><div class="brand-foot">CircuitDesk <span>/</span> a tiny foundry for useful logic.</div><div>Built for X Layer <span>·</span> chain 196 <span>·</span> <a href="https://ignix.bot/x_campaign" target="_blank" rel="noopener noreferrer">IGNIX TapeOut hackathon</a></div></footer>
+    </div>
+
+    <dialog id="createDialog" class="create-dialog" aria-labelledby="createTitle"><form id="createForm" method="dialog"><div class="dialog-top"><span class="step-index">FACTORY / NEW PROCESSOR</span><button id="closeCreateButton" type="button" class="icon-button" aria-label="Close processor form">×</button></div><h2 id="createTitle">Set your transistor terms.</h2><p>The factory records these terms at deployment. Check the supply and price before your wallet signs.</p><label for="createName">Processor name</label><input id="createName" name="name" required maxlength="64" value="CircuitDesk Logic One" placeholder="e.g. CircuitDesk Logic One" /><label for="createSymbol">Transistor symbol</label><input id="createSymbol" name="symbol" required maxlength="16" value="CDL1" placeholder="e.g. CDL1" /><label for="createStory">Purpose / story</label><textarea id="createStory" name="story" required maxlength="200" rows="3" placeholder="What will this processor be used for?">Open Boolean circuits for verifiable two-signal reviews and reusable learning on X Layer.</textarea><div class="field-row"><div><label for="createSupply">Total supply cap (NAND + LATCH)</label><input id="createSupply" name="supply" required type="number" min="1" step="1" value="100000" placeholder="100000" /></div><div><label for="createPrice">Unit price (OKB)</label><input id="createPrice" name="mintPriceOkb" required type="text" inputmode="decimal" pattern="[0-9]+([.][0-9]{1,18})?" value="0.000066" placeholder="0.000066" /><small id="createPriceWei" class="field-help">Converted to integer wei before deployment.</small></div></div><div class="factory-fee"><span>Live factory deployment fee</span><strong id="createDeployFee">Reading from X Layer…</strong><small>Network gas is separate and shown in the wallet.</small></div><div class="dialog-disclosure">This creates a real X Layer processor. The current TapeOut frontend marks X Layer contracts as test phase, unsealed, and unaudited. Future tapeouts can mint and consume priced transistors; there is no return or resale promise. Inspect each wallet request before signing.</div><div id="createStatus" class="form-status" role="status"></div><button id="createSubmit" class="button button-ink button-full" type="submit" disabled>Review in wallet <span aria-hidden="true">↗</span></button></form></dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

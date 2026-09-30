@@ -1,0 +1,43 @@
+# Round 3 — judge-demo review
+
+Date: 2026-09-30 Asia/Seoul. Reviewers: leader (live browser and integration evidence), A (platform), B (product/UI), C (strategy/QA). This is the third internal review of the same product, after [product direction](round-1-product-review.md) and [technical integration](round-2-technical-review.md). It is not an external judge result.
+
+## Verdict
+
+**Local demo: PASS with bounded evidence. Contest submission eligibility: NOT YET MET.** The app has a coherent two-signal XOR scenario, real read-only X Layer evaluation of a public reference circuit, a guarded local-fork create→mint→tapeout→eval path, and desktop/mobile browser evidence. CircuitDesk has **no user-signed mainnet processor or circuit of its own**, and the user has not recorded/uploaded the video. The active Google Form must not be submitted as a completed entry yet.
+
+## What a judge can verify now
+
+- In the local app, a user toggles two manual review flags. The selected XOR truth-table row and output change deterministically; input `1,0` gives `1`, and `1,1` gives `0`. The UI calls this a **local preview**.
+- A separate panel reads an existing public X Layer XOR circuit through `eth_call`, showing output `1` for `1,0` at an explicit block. This call has **no transaction receipt**. A and C separately verified that public circuit #1 on CPU `0x839bdd6fa7a66416a609a735e11de5411b98574e` came from a real **third-party** tapeout transaction [`0x407402…b49210`](https://www.oklink.com/xlayer/tx/0x407402bee88c4663f64ea2c4c3184277c381f32546c4bceaabc8a31776b49210), block **71026051**. The reference is **not CircuitDesk's contest deployment**.
+- Five Node tests pass. A and C independently ran an Anvil local-fork factory create, 4-NAND mint, XOR tapeout, netlist readback, wrong-fee revert, and all four XOR outputs. The leader also exercised exported browser-adapter create/tapeout/evaluate functions using a synthetic EIP-1193 provider on the guarded fork. All fork hashes are **local-only**.
+- The leader served the app at localhost:4173 and captured desktop 1440×900 and mobile 390×844 screens. No horizontal overflow or console error/warning was observed. An invalid processor was rejected and tapeout stayed disabled; exhausted public CPU #0 also kept tapeout disabled. The create dialog showed the live `0.0066 OKB` factory fee plus gas and the test-phase/unsealed/unaudited warning. A separate screenshot shows the public circuit's real transaction rendered as **verified third-party** proof, explicitly disavowing ownership by CircuitDesk. C independently inspected the nine saved screenshots and reran tests and syntax checks. See [browser QA](../review/qa/browser-verification.md) and [technical QA](../review/qa/technical-verification.md).
+- The leader used an all-zero **synthetic localStorage hash** to test pending-write recovery: the app labeled it UNVERIFIED, locked repeat creation across a reload, and returned to NOT DEPLOYED after the synthetic record was cleared. A forged all-zero `&tx` URL did not become a confirmed receipt, while the actual public reference transaction did. No wallet transaction was sent in these tests; see [browser QA](../review/qa/browser-verification.md).
+
+## Judge criteria: current proof and open gap
+
+| Official criterion | What is visible now | Unmet or weak point |
+| --- | --- | --- |
+| Application innovation | A novice can preview and verify a two-reviewer disagreement rule without reading a netlist. | A horizontal AND/OR/XOR workbench is less use-case-specific than [Remembrance Seal](../docs/competitive-landscape.md), which publicly claims two circuits for Agent permissions. No operational workflow integration or user adoption is demonstrated. |
+| Depth of TapeOut integration | Client-derived ABI, live factory/CPU/circuit reads, event verifier, exact local-fork lifecycle. | No **own** mainnet processor or taped-out circuit. |
+| Product completeness and UX | Desktop/mobile app, clear local/reference/mainnet labels, fee and status states, share/read paths. | Real wallet rejection and confirmed own-circuit receipt were not browser-tested; public hosted URL and video still need verification. |
+| Asset issuance design | Proposed 100,000 combined NAND+LATCH cap, 0.000066 OKB/unit, fresh fee display, and explicit three-transaction spend table. | These are **proposed**, not actual deployment terms. Cap/price must be read from the user's confirmed processor. Open minting can exhaust inventory. |
+| Quality of X Layer integration | Chain 196 checked against official network docs; live read-only `eth_call` and actual third-party receipt verifier; local-fork wallet adapter. | No user wallet/mainnet write from this project. |
+| User growth potential | A repeatable template and shareable circuit passport design. | No measured users or repeat sessions. Do not invent metrics. |
+| Contract security and economic model | Input validation, implementation pin, wallet/public state comparison, receipt readback, wrong-fee fork test, risk warning. | TapeOut labels X Layer contracts test-phase, unsealed and unaudited. Last-read-to-mining changes remain possible; no contract audit. Mint and tapeout are separate, so a paid mint can remain without a circuit if the second transaction fails or is rejected. |
+
+## Reviewer positions, disagreement, and changes
+
+- **B (product/UI):** The strongest judge-facing moment is toggling the two manual flags, seeing the XOR row highlight, then receiving the same output from X Layer `eth_call` at a named block. B objected that the nearby public reference could be mistaken for CircuitDesk's own entry. The UI labels it as a third-party protocol reference and keeps the project receipt area “not deployed” until verified project transactions exist. B tightened partial-mint wording, share-link verification and contrast. Visual-verdict improved from **87/revise** to **93/pass** against directly observed commercial editor references; the companion chain-proof screenshot covers evidence below the initial viewport.
+- **A (platform):** The real reference tapeout receipt and exported verifier prove the read/event path. A objected to any visual or written implication that CPU #0 is ours. A corrected adapter partial-mint error wording and retained the implementation pin and post-mint fee recheck. The adapter now carries `confirmedMintHashes` in a post-mint error and warns that a confirmed mint is not automatically refunded. A ran a guarded local-fork regression in which the synthetic wallet rejected the tapeout signature after a confirmed 2-NAND mint; the confirmed mint hash and on-fork balance of 2 remained visible. A considers wallet-signed mainnet creation and tapeout, followed by live readback, the mandatory remaining technical step.
+- **C (strategy/QA):** C accepts the local demo as intelligible and independently verified the public reference receipt, fork lifecycle, tests, and screenshots. C dissents from treating the current horizontal tool as a strong application-innovation entry on its own: the release-review worksheet is a small, honest use case, but no CI/release enforcement is delivered. C recommends pitching the precise authoring/verification benefit and acknowledging that limitation.
+- **Leader resolution:** Keep the product scope honest and spend disclosures prominent. Continue to a public hosted build and final browser pass, then hand off only the exact mainnet wallet signatures and video capture to the user. Do not fill actual addresses/receipts in the form until independently checked.
+
+## Exit gates before submission
+
+1. Public repo remote HEAD and hosted build reachable without sign-in; verify links, mobile view, errors, and contract data on the hosted build.
+2. User reviews the exact [issuance proposal](../submission/issuance-proposal.md) and wallet transaction destinations/values. User signs **createCPU**, then any required **mint**, then **tapeout** on chain 196. Each is a separate, irreversible mainnet action; a confirmed mint does not guarantee tapeout.
+3. Independently verify project processor creation and circuit tapeout receipts, event IDs, block timestamps within the contest window, and contract supply/unit price/cap readback. Evaluate **our** circuit through `eth_call`; use its own share URL.
+4. Replace all form-draft markers with actual public evidence, have the user record/upload the video, then let the user complete contact fields and the final form submission. Preserve the real confirmation receipt.
+
+Until gates 2–3 pass, a public repository, hosted demo, screenshot, local fork, or third-party sample circuit **does not satisfy mainnet eligibility**.
