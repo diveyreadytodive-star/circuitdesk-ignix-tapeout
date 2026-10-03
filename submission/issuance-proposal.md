@@ -2,6 +2,8 @@
 
 **Status: proposal, no CircuitDesk asset deployed or purchased.** Observed contract fees on 2026-09-30 may change. The browser wallet must show each actual destination, value, gas and data before the user signs. TapeOut's X Layer frontend warns its contracts are in a test phase, are not sealed and have not been independently audited.
 
+**Refreshed read-only fee check: 2026-10-02 23:58 KST.** Factory deployment fee still read `0.0066 OKB`; the public reference processor reported `0.00066 OKB` protocol fee and `0.0013 OKB` tapeout fee. Its own transistor mint price is **0 OKB**, so the proposed `0.000066 OKB` unit price above remains a proposal; the new processor's fees and gas must be read in the app immediately before signing.
+
 | Parameter | Proposed value | Reason and consequence |
 | --- | --- | --- |
 | Network | X Layer mainnet, chain 196, native OKB | Required by the contest. Testnet chain 1952 does not qualify. |

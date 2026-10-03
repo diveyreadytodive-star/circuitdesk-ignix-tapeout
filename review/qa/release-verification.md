@@ -22,3 +22,9 @@ This verifies public hosting and a read-only product demo. It does **not** verif
 ## Remaining contest gate
 
 The public repo does **not** substitute for a user-signed mainnet processor creation and circuit tapeout on that processor before 2026-10-06 13:00 KST. The user video and final form submission are also pending. See [readiness.json](../../readiness.json) and [requirements-checklist.md](../../submission/requirements-checklist.md).
+
+## Last-mile recheck — 2026-10-03 KST
+
+- The current campaign's “Submit project” link opened the same Google Form with `?usp=dialog`. It showed the Sep 22 12:00–Oct 6 12:00 HKT window, required project/contact/repository fields, and a Submit button. No fields were filled or submitted; no account email was inspected.
+- The app page evaluated in the Codex IAB and the inspected Chrome automation tab did not expose `window.ethereum`. No account list was requested. For a real deployment the user needs the app open in their normal browser profile where their OKX Wallet/MetaMask provider is injected; if they connect manually, the app should show the selected address and chain before preparing writes.
+- Read-only X Layer refresh at 2026-10-02 23:58 KST still returned factory deploy fee 0.0066 OKB, reference processor mint protocol fee 0.00066 OKB, and tapeout fee 0.0013 OKB. The reference processor has zero mint price and is fully minted, so it is not the proposed new processor; its values only confirm current protocol fee components. The proposed new processor's mint quote is still 4 × 0.000066 + 0.00066 OKB, pending fresh read at deployment.

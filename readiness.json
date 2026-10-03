@@ -1,9 +1,10 @@
 {
   "schemaVersion": "1.0",
-  "asOfKstDate": "2026-09-30",
+  "asOfKstDate": "2026-10-03",
   "contestDeadlineKst": "2026-10-06T13:00:00+09:00",
   "eligibility": "NOT_MET",
   "submissionFormOpenObserved": true,
+  "lastOfficialFormCheckKst": "2026-10-03",
   "project": {
     "name": "CircuitDesk",
     "repository": "https://github.com/diveyreadytodive-star/circuitdesk-ignix-tapeout",
@@ -13,6 +14,10 @@
   },
   "verifiedDevelopmentEvidence": {
     "xLayerChainId196AndFactoryRead": true,
+    "lastReadOnlyFeeCheckKst": "2026-10-02T23:58:06+09:00",
+    "observedFactoryDeployFeeOkb": "0.0066",
+    "observedReferenceProcessorProtocolFeeOkb": "0.00066",
+    "observedReferenceProcessorTapeoutFeeOkb": "0.0013",
     "publicThirdPartyXorEthCall": true,
     "publicThirdPartyTapeoutReceipt": true,
     "guardedLocalForkLifecycle": true,
@@ -22,6 +27,7 @@
     "hostedBrowserThirdPartyXorEthCall": true,
     "hostedBrowserMobileNoHorizontalOverflow": true,
     "hostedBrowserConsoleErrors": 0,
+    "walletProviderDetectedInInspectedBrowser": false,
     "nodeTestsPassed": 5,
     "evidenceFiles": [
       "docs/platform-evidence.md",
@@ -51,7 +57,8 @@
   "userVideoUrl": null,
   "formSubmitted": false,
   "remainingUserActions": [
-    "Review the exact three wallet requests and sign processor creation, any required NAND mint, and XOR tapeout on X Layer mainnet before the deadline.",
+    "Open the public app in a browser where the user's OKX Wallet or MetaMask extension is active; the inspected browser did not expose an injected wallet provider.",
+    "Connect the user's own wallet, confirm X Layer mainnet (chain 196) and adequate OKB plus gas, then review and sign processor creation, any required NAND mint, and XOR tapeout as separate transactions.",
     "Record and upload the demo video after both mainnet receipts are independently verified.",
     "Enter private contact fields and submit the official Google Form after all evidence links are public."
   ]

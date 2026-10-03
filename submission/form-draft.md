@@ -1,6 +1,6 @@
 # English Google Form draft — do not submit until the mainnet and video gates pass
 
-Form: [TapeOut Genesis Transistor Hackathon](https://docs.google.com/forms/d/e/1FAIpQLSd7USjG6LUNNRxwFWY4YEuSY0V0xv8VZNCl6z_-lGSl96vWZA/viewform). Fields were read from the live form on 2026-09-30. This is editable copy, **not a submitted response**. Replace every `[VERIFY …]` marker with direct evidence and check that public links open in a signed-out browser before submission. The user creates/uploads the demo video and makes the final form submission.
+Form: [TapeOut Genesis Transistor Hackathon](https://docs.google.com/forms/d/e/1FAIpQLSd7USjG6LUNNRxwFWY4YEuSY0V0xv8VZNCl6z_-lGSl96vWZA/viewform?usp=dialog), reached from the official campaign on 2026-10-03. The form displayed its fields and Submit button. This is editable copy, **not a submitted response**. Replace every `[VERIFY …]` marker with direct evidence and check that public links open in a signed-out browser before submission. The user creates/uploads the demo video and makes the final form submission.
 
 ## Project Name — required
 

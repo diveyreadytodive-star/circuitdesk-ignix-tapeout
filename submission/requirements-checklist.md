@@ -1,10 +1,10 @@
 # Requirement-by-requirement readiness checklist
 
-Status as of 2026-09-30 Asia/Seoul. **Verified** means this project has direct evidence; **Pending** means the contest requirement is unmet or has not yet been proven. Recheck after implementation and before the final form. Source: [official campaign](https://ignix.bot/x_campaign#hackathon-rules), [live form](https://docs.google.com/forms/d/e/1FAIpQLSd7USjG6LUNNRxwFWY4YEuSY0V0xv8VZNCl6z_-lGSl96vWZA/viewform).
+Status as of 2026-10-03 Asia/Seoul. **Verified** means this project has direct evidence; **Pending** means the contest requirement is unmet or has not yet been proven. Recheck before the final form. Sources: [official campaign](https://ignix.bot/x_campaign#hackathon-rules), [current campaign-linked form](https://docs.google.com/forms/d/e/1FAIpQLSd7USjG6LUNNRxwFWY4YEuSY0V0xv8VZNCl6z_-lGSl96vWZA/viewform?usp=dialog).
 
 | Requirement | Current status | What closes it |
 | --- | --- | --- |
-| Online event and live submission path | **Verified** 2026-09-30 | Campaign rendered “Online”; linked Google Form showed fields and Submit button. Reconfirm before submission. |
+| Online event and live submission path | **Verified** 2026-10-03 | Campaign rendered “Online”; its current Submit project link reached a Google Form with fields and Submit button. Reconfirm before submission. |
 | Deadline and separate pre-registration | **Verified with limit** | Rendered deadline 2026-10-06 13:00 KST. No separate registration cutoff was stated on the observed official surfaces; do not assume future changes. |
 | Processor deployed through TapeOut factory on X Layer mainnet (chain 196) | **Pending** | Official factory address/ABI and successful mainnet deployment receipt; separate read-only `isCPU`/equivalent check and explorer link. |
 | Public transistor supply, unit price, any cap at deployment | **Pending** | Deployment call parameters and contract reads match publicly accessible README and app. Disclose currency, units, and any cap scope. |
