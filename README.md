@@ -60,6 +60,7 @@ The proposed first-run sequence needs three separate signatures: processor creat
 - [Desktop/mobile reference study](docs/design-reference.md)
 - [Requirement checklist](submission/requirements-checklist.md)
 - [English form draft](submission/form-draft.md) and [filming script](submission/filming-script.md)
+- [Korean wallet signing handoff](submission/wallet-handoff-ko.md)
 - `readiness.json` and QA records will identify the exact evidence and unmet mainnet gates at handoff.
 
 No wash trading, matched orders, self-trading, fabricated usage, or simulated API response is part of the demo. Existing TapeOut circuits, when shown, are labeled as public references rather than CircuitDesk deployments.
